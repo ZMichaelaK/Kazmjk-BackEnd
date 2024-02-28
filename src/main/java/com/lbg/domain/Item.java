@@ -1,24 +1,39 @@
 package com.lbg.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 public class Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(nullable = false)
 	private String itemName;
 
+	@Column(nullable = false)
 	private String itemDescription;
 
+	@Column(nullable = false)
 	private Double price;
 
+	@Column(nullable = false)
 	private Integer quantity;
 
+	@Column(nullable = false)
 	private String imageUrl;
+
+	@JsonBackReference(value = "for-item")
+	@ManyToOne
+	private Cart cart;
 
 	public Item() {
 		super();
@@ -66,6 +81,18 @@ public class Item {
 
 	public int getId() {
 		return id;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

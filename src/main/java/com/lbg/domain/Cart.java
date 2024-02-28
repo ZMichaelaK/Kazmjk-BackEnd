@@ -1,32 +1,41 @@
 package com.lbg.domain;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+@Entity
 public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private Item item;
+	@JsonManagedReference(value = "for-item")
+	@OneToMany(mappedBy = "cart")
+	private List<Item> item;
 
 	public Cart() {
 		super();
 
 	}
 
-	public Item getItem() {
+	public int getId() {
+		return id;
+	}
+
+	public List<Item> getItem() {
 		return item;
 	}
 
-	public void setItem(Item item) {
+	public void setItem(List<Item> item) {
 		this.item = item;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 }

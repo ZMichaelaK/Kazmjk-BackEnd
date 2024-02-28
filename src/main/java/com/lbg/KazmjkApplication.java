@@ -1,4 +1,4 @@
-package com.lbg.library;
+package com.lbg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
