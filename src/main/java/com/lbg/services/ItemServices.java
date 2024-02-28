@@ -65,6 +65,9 @@ public class ItemServices {
 		if (itemDetails.getImageUrl() != null) {
 			existing.setImageUrl(itemDetails.getImageUrl());
 		}
+		if (itemDetails.getCart() != null) {
+			existing.setCart(itemDetails.getCart());
+		}
 
 		Item updated = this.repo.save(existing);
 
