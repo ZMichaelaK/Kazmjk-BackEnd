@@ -23,7 +23,7 @@ public class Item {
 	private String itemDescription;
 
 	@Column(nullable = false)
-	private Double price;
+	private String price;
 
 	@Column(nullable = false)
 	private Integer quantity;
@@ -55,11 +55,11 @@ public class Item {
 		this.itemDescription = itemDescription;
 	}
 
-	public Double getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
