@@ -1,5 +1,6 @@
 package com.lbg.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.lbg.DTO.ItemDTO;
 import com.lbg.domain.Item;
 import com.lbg.repos.ItemRepo;
 
@@ -18,6 +20,28 @@ public class ItemServices {
 	public ItemServices(ItemRepo repo) {
 		super();
 		this.repo = repo;
+	}
+
+	public List<ItemDTO> getItem() {
+		List<Item> items = this.repo.findAll();
+
+		List<ItemDTO> dtos = new ArrayList<>();
+
+		for (Item item : items) {
+			ItemDTO dto = new ItemDTO();
+
+			dto.setId(item.getId());
+			dto.setItemName(item.getItemName());
+			dto.setPrice(item.getPrice());
+			dto.setQuantity(item.getQuantity());
+			if (item.getCart() != null) {
+				dto.setCartId(item.getCart().getId());
+			}
+			dtos.add(dto);
+
+		}
+		return dtos;
+
 	}
 
 	public ResponseEntity<Item> createItem(Item newItem) {

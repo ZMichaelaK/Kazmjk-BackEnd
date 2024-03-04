@@ -2,7 +2,6 @@ package com.lbg.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,19 +15,14 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(nullable = false)
 	private String itemName;
 
-	@Column(nullable = false)
 	private String itemDescription;
 
-	@Column(nullable = false)
 	private String price;
 
-	@Column(nullable = false)
 	private Integer quantity;
 
-	@Column(nullable = false)
 	private String imageUrl;
 
 	@JsonBackReference(value = "for-item")

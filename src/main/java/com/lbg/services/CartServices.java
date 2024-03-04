@@ -53,6 +53,10 @@ public class CartServices {
 			existing.setItem(cartDetails.getItem());
 		}
 
+		if (cartDetails.getIsInCart() != null) {
+			existing.setIsInCart(cartDetails.getIsInCart());
+		}
+
 		Cart updated = this.repo.save(existing);
 
 		return ResponseEntity.ok(updated);

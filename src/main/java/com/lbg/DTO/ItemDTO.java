@@ -5,13 +5,13 @@ import com.lbg.domain.Item;
 public class ItemDTO {
 
 	private Integer id;
-	
+
 	private String itemName;
-	
+
 	private String price;
-	
+
 	private Integer quantity;
-	
+
 	private Integer cartId;
 
 	public ItemDTO(Item item) {
@@ -20,9 +20,13 @@ public class ItemDTO {
 		this.setItemName(item.getItemName());
 		this.setPrice(item.getPrice());
 		this.setQuantity(item.getQuantity());
-		if (item.getCart()!= null) {
+		if (item.getCart() != null) {
 			this.setCartId(item.getCart().getId());
 		}
+	}
+
+	public ItemDTO() {
+		super();
 	}
 
 	public Integer getId() {
@@ -64,6 +68,5 @@ public class ItemDTO {
 	public void setCartId(Integer cartId) {
 		this.cartId = cartId;
 	}
-	
-}
 
+}
