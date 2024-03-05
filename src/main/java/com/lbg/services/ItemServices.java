@@ -30,7 +30,7 @@ public class ItemServices {
 		for (Item item : items) {
 			ItemDTO dto = new ItemDTO();
 
-			dto.setId(item.getId());
+			dto.setItemId(item.getItemId());
 			dto.setItemName(item.getItemName());
 			dto.setPrice(item.getPrice());
 			dto.setQuantity(item.getQuantity());
@@ -53,8 +53,8 @@ public class ItemServices {
 		return this.repo.findAll();
 	}
 
-	public ResponseEntity<Item> getItem(int id) {
-		Optional<Item> found = this.repo.findById(id);
+	public ResponseEntity<Item> getItem(Integer itemId) {
+		Optional<Item> found = this.repo.findById(itemId);
 
 		if (found.isEmpty()) {
 			return new ResponseEntity<Item>(HttpStatus.NOT_FOUND);
@@ -65,8 +65,8 @@ public class ItemServices {
 		return ResponseEntity.ok(body);
 	}
 
-	public ResponseEntity<Item> updateItem(int id, Item itemDetails) {
-		Optional<Item> found = this.repo.findById(id);
+	public ResponseEntity<Item> updateItem(Integer itemId, Item itemDetails) {
+		Optional<Item> found = this.repo.findById(itemId);
 
 		if (found.isEmpty()) {
 			return new ResponseEntity<Item>(HttpStatus.NOT_FOUND);
@@ -98,9 +98,9 @@ public class ItemServices {
 		return ResponseEntity.ok(updated);
 	}
 
-	public boolean deleteItem(int id) {
-		this.repo.deleteById(id);
-		return !this.repo.existsById(id);
+	public boolean deleteItem(Integer itemId) {
+		this.repo.deleteById(itemId);
+		return !this.repo.existsById(itemId);
 	}
 
 }

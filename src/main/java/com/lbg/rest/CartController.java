@@ -39,17 +39,17 @@ public class CartController {
 	}
 
 	@GetMapping("/get/{id}")
-	public ResponseEntity<Cart> getCart(@PathVariable int id) {
+	public ResponseEntity<Cart> getCart(@PathVariable Integer id) {
 		return this.service.getCart(id);
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Cart> updateCart(@PathVariable int id, @RequestBody Cart cartDetails) {
+	public ResponseEntity<Cart> updateCart(@PathVariable Integer id, @RequestBody Cart cartDetails) {
 		return this.service.updateCart(id, cartDetails);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public boolean deleteCart(@PathVariable int id) {
+	public boolean deleteCart(@PathVariable Integer id) {
 		return this.service.deleteCart(id);
 	}
 }

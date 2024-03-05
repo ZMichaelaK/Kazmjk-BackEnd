@@ -15,9 +15,7 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	private Boolean isInCart;
+	private Integer id;
 
 	@JsonManagedReference(value = "for-item")
 	@OneToMany(mappedBy = "cart")
@@ -28,8 +26,12 @@ public class Cart {
 
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public List<Item> getItem() {
@@ -38,14 +40,6 @@ public class Cart {
 
 	public void setItem(List<Item> item) {
 		this.item = item;
-	}
-
-	public Boolean getIsInCart() {
-		return isInCart;
-	}
-
-	public void setIsInCart(Boolean isInCart) {
-		this.isInCart = isInCart;
 	}
 
 }

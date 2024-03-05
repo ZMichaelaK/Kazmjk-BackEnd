@@ -29,7 +29,7 @@ public class CartServices {
 		return this.repo.findAll();
 	}
 
-	public ResponseEntity<Cart> getCart(int id) {
+	public ResponseEntity<Cart> getCart(Integer id) {
 		Optional<Cart> found = this.repo.findById(id);
 
 		if (found.isEmpty()) {
@@ -40,7 +40,7 @@ public class CartServices {
 		return ResponseEntity.ok(body);
 	}
 
-	public ResponseEntity<Cart> updateCart(int id, Cart cartDetails) {
+	public ResponseEntity<Cart> updateCart(Integer id, Cart cartDetails) {
 		Optional<Cart> found = this.repo.findById(id);
 
 		if (found.isEmpty()) {
@@ -53,16 +53,12 @@ public class CartServices {
 			existing.setItem(cartDetails.getItem());
 		}
 
-		if (cartDetails.getIsInCart() != null) {
-			existing.setIsInCart(cartDetails.getIsInCart());
-		}
-
 		Cart updated = this.repo.save(existing);
 
 		return ResponseEntity.ok(updated);
 	}
 
-	public boolean deleteCart(int id) {
+	public boolean deleteCart(Integer id) {
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id);
 	}

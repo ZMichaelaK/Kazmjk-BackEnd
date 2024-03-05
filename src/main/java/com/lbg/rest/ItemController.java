@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,19 +38,19 @@ public class ItemController {
 		return this.service.getItems();
 	}
 
-	@GetMapping("/get/{id}")
-	public ResponseEntity<Item> getItem(@PathVariable int id) {
-		return this.service.getItem(id);
+	@GetMapping("/get/{itemId}")
+	public ResponseEntity<Item> getItem(@PathVariable Integer itemId) {
+		return this.service.getItem(itemId);
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<Item> updateItem(@PathVariable int id, @RequestBody Item itemDetails) {
-		return this.service.updateItem(id, itemDetails);
+	@PatchMapping("/update/{itemId}")
+	public ResponseEntity<Item> updateItem(@PathVariable Integer itemId, @RequestBody Item itemDetails) {
+		return this.service.updateItem(itemId, itemDetails);
 	}
 
-	@DeleteMapping("/delete/{id}")
-	public boolean deleteItem(@PathVariable int id) {
-		return this.service.deleteItem(id);
+	@DeleteMapping("/delete/{itemId}")
+	public boolean deleteItem(@PathVariable Integer itemId) {
+		return this.service.deleteItem(itemId);
 	}
 
 }

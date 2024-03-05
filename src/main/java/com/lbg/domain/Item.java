@@ -13,7 +13,7 @@ public class Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer itemId;
 
 	private String itemName;
 
@@ -21,7 +21,7 @@ public class Item {
 
 	private String price;
 
-	private Integer quantity;
+	private String quantity;
 
 	private String imageUrl;
 
@@ -57,11 +57,11 @@ public class Item {
 		this.price = price;
 	}
 
-	public Integer getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Integer quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
@@ -73,10 +73,6 @@ public class Item {
 		this.imageUrl = imageUrl;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	public Cart getCart() {
 		return cart;
 	}
@@ -85,8 +81,12 @@ public class Item {
 		this.cart = cart;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Integer getItemId() {
+		return itemId;
+	}
+
+	public void setId(Integer itemId) {
+		this.itemId = itemId;
 	}
 
 }

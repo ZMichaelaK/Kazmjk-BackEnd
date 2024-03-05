@@ -4,19 +4,19 @@ import com.lbg.domain.Item;
 
 public class ItemDTO {
 
-	private Integer id;
+	private Integer itemId;
 
 	private String itemName;
 
 	private String price;
 
-	private Integer quantity;
+	private String quantity;
 
 	private Integer cartId;
 
 	public ItemDTO(Item item) {
 		super();
-		this.setId(item.getId());
+		this.setItemId(item.getItemId());
 		this.setItemName(item.getItemName());
 		this.setPrice(item.getPrice());
 		this.setQuantity(item.getQuantity());
@@ -29,12 +29,12 @@ public class ItemDTO {
 		super();
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getItemId() {
+		return itemId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getItemName() {
@@ -53,11 +53,11 @@ public class ItemDTO {
 		this.price = price;
 	}
 
-	public Integer getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Integer quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
