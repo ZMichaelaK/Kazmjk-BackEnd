@@ -15,7 +15,7 @@ public class Cart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private Boolean isInCart;
 
@@ -23,12 +23,16 @@ public class Cart {
 	@OneToMany(mappedBy = "cart")
 	private List<Item> item;
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public Cart() {
 		super();
 
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
