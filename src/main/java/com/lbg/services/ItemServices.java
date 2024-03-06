@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.lbg.DTO.ItemDTO;
+import com.lbg.domain.Cart;
 import com.lbg.domain.Item;
+import com.lbg.repos.CartRepo;
 import com.lbg.repos.ItemRepo;
 
 @Service
@@ -17,9 +19,12 @@ public class ItemServices {
 
 	private ItemRepo repo;
 
-	public ItemServices(ItemRepo repo) {
+	private CartRepo cartRepo;
+
+	public ItemServices(ItemRepo repo, CartRepo cartRepo) {
 		super();
 		this.repo = repo;
+		this.cartRepo = cartRepo;
 	}
 
 	public List<ItemDTO> getItem() {
@@ -90,7 +95,8 @@ public class ItemServices {
 			existing.setImageUrl(itemDetails.getImageUrl());
 		}
 		if (itemDetails.getCart() != null) {
-			existing.setCart(itemDetails.getCart());
+			Optional<Cart> foundCart = this.cartRepo.findById(itemDetails.getCart().getId());
+			existing.setCart(foundCart.get());
 		}
 
 		Item updated = this.repo.save(existing);
