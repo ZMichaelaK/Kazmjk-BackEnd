@@ -21,7 +21,7 @@ public class Item {
 
 	private String price;
 
-	private String quantity;
+	private Integer quantity;
 
 	private String imageUrl;
 
@@ -57,11 +57,11 @@ public class Item {
 		this.price = price;
 	}
 
-	public String getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
@@ -85,7 +85,7 @@ public class Item {
 		return itemId;
 	}
 
-	public void setId(Integer itemId) {
+	public void setItemId(Integer itemId) {
 		this.itemId = itemId;
 	}
 
