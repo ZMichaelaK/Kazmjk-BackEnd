@@ -14,7 +14,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
@@ -26,8 +25,8 @@ public class SeleniumTest {
 
 	private RemoteWebDriver driver;
 
-	@LocalServerPort
-	private int port;
+//	@LocalServerPort
+//	private int port;
 
 	@BeforeEach
 	void init() {
@@ -90,7 +89,7 @@ public class SeleniumTest {
 	@Test
 	@Order(3)
 	void createItemTest() throws InterruptedException {
-		this.driver.get("http://localhost:" + this.port);
+		this.driver.get("http://localhost:3000");
 
 		WebElement usernameField = this.driver
 				.findElement(By.cssSelector("#root > header > div > form > label:nth-child(1) > input[type=text]"));
@@ -105,9 +104,14 @@ public class SeleniumTest {
 
 		Thread.sleep(300);
 
-		WebElement navItems = this.driver
-				.findElement(By.cssSelector("#navbarSupportedContent > ul > li:nth-child(2) > a"));
+		WebElement navItems = this.driver.findElement(By.xpath("//*[@id=\"navbarSupportedContent\"]/ul/li[2]/a"));
 		navItems.click();
+
+		WebElement inputName = this.driver.findElement(By.cssSelector("#itemName"));
+		inputName.sendKeys("Floofianna");
+
+		WebElement inputDescription = this.driver.findElement(By.cssSelector("#itemDescription"));
+		inputDescription.sendKeys("Fluffy Cat");
 
 	}
 
