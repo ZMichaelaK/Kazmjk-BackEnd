@@ -10,7 +10,7 @@ public class ItemDTO {
 
 	private String price;
 
-	private String quantity;
+	private Integer quantity;
 
 	private Integer cartId;
 
@@ -53,11 +53,11 @@ public class ItemDTO {
 		this.price = price;
 	}
 
-	public String getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
