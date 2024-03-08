@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.db62923b.css",
+    "main.js": "/static/js/main.bb13d9f3.js",
+    "static/js/453.069b390d.chunk.js": "/static/js/453.069b390d.chunk.js",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "static/media/cart-shopping-svgrepo-com.svg": "/static/media/cart-shopping-svgrepo-com.0312147298b7f757bf0e67b674447789.svg",
+    "main.db62923b.css.map": "/static/css/main.db62923b.css.map",
+    "main.bb13d9f3.js.map": "/static/js/main.bb13d9f3.js.map",
+    "453.069b390d.chunk.js.map": "/static/js/453.069b390d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db62923b.css",
+    "static/js/main.bb13d9f3.js"
+  ]
+}
